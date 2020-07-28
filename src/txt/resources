@@ -1,0 +1,39 @@
+----------------echo:
+
+echo "'"bonjour"'" --> 'bonjour'
+echo '"'"bonjour"'"' --> "bonjour"
+echo '"bonjour"' --> "bonjour"
+
+echo "bonjour" --> bonjour
+echo 'bonjour' --> bonjour
+
+echo '$PATH' --> $PATH
+echo "$PATH" --> /usr/local/sbin:/usr/local/bin:/usr
+echo $PATH --> /usr/local/sbin:/usr/local/bin:/usr
+
+echo bonjour $USER --> bonjour pnielly
+echo bonjour '$USER' --> bonjour $USER
+echo bonjour "$USER" --> bonjour pnielly
+echo 'bonjour "$USER"' --> bonjour "$USER"
+echo "'bonjour "$USER"'" --> 'bonjour pnielly'
+echo "'bonjour $USER'" --> 'bonjour pnielly'
+echo "'bonjour ""$USER""'" --> 'bonjour pnielly'
+echo '"'bonjour $USER'"' --> "bonjour pnielly"
+
+echo bonjour "merci aurevoir" --> bonjour merci aurevoir
+echo "bonjour 'toi" --> bonjour 'toi
+echo 'bonjour "toi' --> bonjour "toi
+
+echo ''$USER'' --> pnielly (deux single quote se comportent comme un double quote)
+
+echo $var_inexistante --> [retour à la ligne]
+
+-------------cd:
+
+cd  --> go to 'user root'
+cd .. --> go up one folder
+cd '..' --> go up one folder
+cd ".." --> go up one folder
+cd "project" --> go to folder named project
+cd "project" --> go to folder named project
+cd "project" --> go to folder named project

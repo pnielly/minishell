@@ -1,0 +1,4 @@
+
+dans main :
+
+mettre printf au niveau de strerror (ft_run)
