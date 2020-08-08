@@ -19,7 +19,7 @@
 ** Macros
 */
 
-# define SPACE " \t\n\r\v"
+# define SPACE " \f\t\n\r\v"
 
 /*
 ** # of builtins

@@ -28,6 +28,14 @@ echo ''$USER'' --> pnielly (deux single quote se comportent comme un double quot
 
 echo $var_inexistante --> [retour à la ligne]
 
+echo joie\n --> joien
+echo joie'\n' --> joie [+ retour a la ligne]
+echo joie"\n" --> joie [+ retour a la ligne]
+
+echo "\\" --> \
+echo "\" --> error
+echo "\\\" --> error
+
 -------------cd:
 
 cd  --> go to 'user root'

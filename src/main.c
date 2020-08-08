@@ -37,14 +37,14 @@ int	check_syntax(char *s)
 	{
 		if (s[i] == '\'' && !sl)
 			sl++;
-		if (s[i] == '\'' && sl)
+		else if (s[i] == '\'' && sl)
 		{
 			sl--;
 			dl = 0;
 		}
 		if (s[i] == '\"' && !dl)
 			dl++;
-		if (s[i] == '\"' && dl)
+		else if (s[i] == '\"' && dl)
 		{
 			dl--;
 			sl = 0;
@@ -66,10 +66,15 @@ char	**ft_run(char *cmd, char **env)
 	if (!cmd)
 		return (env);
 	args = ft_split(cmd, SPACE);
-	check_syntax(cmd) ? strerror(WRONG_ARG) : 0;
+//	check_syntax(cmd) ? printf("%s\n", strerror(WRONG_ARG)) | return (env) : 0;
+	if (check_syntax(cmd))
+	{
+		printf("%s\n", strerror(WRONG_ARG));
+		return (env);
+	}
 	free(cmd);
 	cmd = NULL;
-	tmp = ft_strclr(args[0], SPACE);
+	tmp = ft_strrmv(args[0], SPACE);
 	free(args[0]);
 	args[0] = tmp;
 	i = -1;

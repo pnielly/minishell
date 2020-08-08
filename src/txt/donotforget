@@ -1,4 +1,4 @@
 
 dans main :
 
-mettre printf au niveau de strerror (ft_run)
+mettre printf au niveau de strerror (ft_run) (bt_echo) --> suppr <stdio.h> pour les reperer

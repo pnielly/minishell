@@ -6,7 +6,7 @@
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 15:32:09 by jaleman           #+#    #+#             */
-/*   Updated: 2016/11/02 15:32:11 by jaleman          ###   ########.fr       */
+/*   Updated: 2020/08/08 10:23:34 by pnielly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	ft_error(int err, char *exe, char *msg);
-char	*ft_strclr(char *s, char *sep);
+char	*ft_strrmv(char *s, char *sep);
 void	ft_tabfree(char **tab);
 
 #endif

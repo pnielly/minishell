@@ -6,13 +6,17 @@
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 12:50:09 by jaleman           #+#    #+#             */
-/*   Updated: 2017/03/02 12:50:13 by jaleman          ###   ########.fr       */
+/*   Updated: 2020/08/08 10:24:26 by pnielly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strclr(char *s, char	*sep)
+/*
+**	ft_strrmv removes all char of sep in s and returns the new string
+*/
+
+char	*ft_strrmv(char *s, char *sep)
 {
 	int	i;
 	int	len;
