@@ -18,7 +18,10 @@ void	ft_tabfree(char **tab)
 
 	i = 0;
 	while (tab[i])
+	{
+		tab[i] = NULL;
 		free(tab[i++]);
+	}
 	free(tab);
 	return ;
 }

@@ -25,7 +25,7 @@
 ** # of builtins
 */
 
-# define BLTS 4
+# define BLTS 9
 
 /*
 ** errno index
@@ -43,5 +43,14 @@ char	**bt_pwd(char **args, char **env);
 char	**bt_exit(char **args, char **env);
 char	**bt_echo(char **args, char **env);
 char	**bt_env(char **args, char **env);
+char	**bt_export(char **args, char **env);
+char	**bt_unset(char **args, char **env);
+char	**bt_cd(char **args, char **env);
+char	**bt_sophie(char **args, char **env);
+char	**bt_help(char **args, char **env);
+
+/* Other useful functions */
+char	**ft_envadd(char **envp, char *expt);
+char	**ft_envsub(char **envp, char *unset);
 
 #endif

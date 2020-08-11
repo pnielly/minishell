@@ -30,25 +30,30 @@ int	check_syntax(char *s)
 	int	sl;
 	int	dl;
 
-	i = -1;
+	i = 0;
 	sl = 0;
 	dl = 0;
-	while (s[++i])
+	while (s[i])
 	{
-		if (s[i] == '\'' && !sl)
-			sl++;
-		else if (s[i] == '\'' && sl)
+		while (s[i] != '\'' && s[i] != '\"' && s[i])
+			i++;
+		if (s[i] == '\'')
 		{
-			sl--;
-			dl = 0;
+			sl = 1;
+			while (s[i] != '\'' && s[i])
+				i++;
+			if (s[i] == '\'')
+				sl = 0;
 		}
-		if (s[i] == '\"' && !dl)
-			dl++;
-		else if (s[i] == '\"' && dl)
+		if (s[i] == '\"')
 		{
-			dl--;
-			sl = 0;
+			dl = 1;
+			while (s[i] != '\"' && s[i])
+				i++;
+			if (s[i] == '\"')
+				dl = 0;
 		}
+		i++;
 	}
 	return (dl + sl);
 }
@@ -91,7 +96,7 @@ char	**ft_run(char *cmd, char **env)
  */
 
 
-char	**ft_envdup(char **envp)
+char	**ft_envadd(char **envp, char *expt)
 {
 	int	i;
 	char	**env;
@@ -99,11 +104,13 @@ char	**ft_envdup(char **envp)
 	i = 0;
 	while (envp[i])
 		i++;
-	if (!(env = malloc(sizeof(char *) * (i + 1))))
+	if (!(env = malloc(sizeof(char *) * (i + 1 + 1))))
 		return (NULL);
 	i = -1;
 	while (envp[++i])
 		env[i] = ft_strdup(envp[i]);
+	if (expt != NULL)
+		env[i++] = ft_strdup(expt);
 	env[i] = NULL;
 	return (env);
 }
@@ -122,7 +129,8 @@ int	main(int ac, char **av, char **envp)
 
 	(void)ac;
 	(void)av;
-	env = ft_envdup(envp);
+	display_ascii_dude();
+	env = ft_envadd(envp, NULL);
 	status = 1;
 	while (status)
 	{

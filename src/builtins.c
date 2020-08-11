@@ -12,7 +12,12 @@ char	*bt_str(int i)
 	bt[1] = "exit";
 	bt[2] = "echo";
 	bt[3] = "env";
-	bt[4] = NULL;
+	bt[4] = "export";
+	bt[5] = "unset";
+	bt[6] = "cd";
+	bt[7] = "sophie";
+	bt[8] = "help";
+	bt[9] = NULL;
 	return (bt[i]);
 }
 
@@ -28,5 +33,10 @@ char	**(*bt_ft(int i))(char **args, char **env)
 	bt_ft[1] = &bt_exit;
 	bt_ft[2] = &bt_echo;
 	bt_ft[3] = &bt_env;
+	bt_ft[4] = &bt_export;
+	bt_ft[5] = &bt_unset;
+	bt_ft[6] = &bt_cd;
+	bt_ft[7] = &bt_sophie;
+	bt_ft[8] = &bt_help;
 	return (bt_ft[i]);
 }

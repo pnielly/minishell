@@ -39,9 +39,12 @@ echo "\\\" --> error
 -------------cd:
 
 cd  --> go to 'user root'
+cd ~ --> go to 'user root'
 cd .. --> go up one folder
 cd '..' --> go up one folder
 cd ".." --> go up one folder
 cd "project" --> go to folder named project
 cd "project" --> go to folder named project
 cd "project" --> go to folder named project
+cd - --> go to previous folder with printing pwd
+cd ~- --> go to previous folder without pwd

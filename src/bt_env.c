@@ -7,7 +7,8 @@ char	**bt_env(char **args, char **env)
 	i = -1;
 	while (env[++i])
 	{
-		ft_putendl(env[i]);
+		if (ft_strchr(env[i], '='))
+			ft_putendl(env[i]);
 	}
 	return (env);
 	(void)args;

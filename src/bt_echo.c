@@ -29,15 +29,15 @@ void	ft_print_var(char **args, int i, int j, char **env)
 	char	*var;
 	int	k;
 
-	k = ++j;
-	while (!ft_strchr("$' ", args[i][k]) && args[i][k])
+	k = j + 1;
+	while (!ft_strchr("$'\" ", args[i][k]) && args[i][k])
 		k++;
-	var = ft_substr(args[i], j, (k - 1) - j);
+	var = ft_substr(args[i], j + 1, k - j - 1);
 	k = -1;
 	while (env[++k])
 	{
 		if (!ft_strncmp(var, env[k], ft_strlen(var)) && env[k][ft_strlen(var)] == '=')
-			write(1, env[k] + ft_strlen(var) + 1, ft_strlen(env[k]) - ft_strlen(var));
+			write(1, env[k] + ft_strlen(var) + 1, ft_strlen(env[k]) - ft_strlen(var) - 1);
 	}
 	free(var);
 	var = NULL;
@@ -101,11 +101,11 @@ char	**bt_echo(char **args, char **env)
 				else if (!quote[0])
 					quote[1] = 1;
 			}
-			if (args[i][j] == '\')
+			if (args[i][j] == '\\')
 			{
 				if (ft_strchr("ftnrv", args[i][j + 1]))
 					ft_print_space(args[i][j + 1]);
-				else if (args[i][j + 1] == '\')
+				else if (args[i][j + 1] == '\\')
 					write(1, "\\", 1);
 				j += 2;
 			}
@@ -113,14 +113,15 @@ char	**bt_echo(char **args, char **env)
 			{
 				ft_print_var(args, i, j, env);
 				j++;
-				while (!ft_strchr("$' ", args[i][j]))
+				while (!ft_strchr("$'\" ", args[i][j]))
 					j++;
 				j--;
 			}
 		}
 	}
 	if (!ft_strcmp(ft_strrmv(args[1], SPACE), "-n"))
-		write(1, "\n", 1);
+		return (env);
+	write(1, "\n", 1);
 	return (env);
 	(void)args;
 }

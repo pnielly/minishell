@@ -48,6 +48,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_putchar(char c);
 int		ft_putendl(char *str);
 int		ft_putstr(char *str);
+int		ft_putstr_until(char *s, char c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -59,5 +60,8 @@ void	ft_bzero(void *s, size_t n);
 void	ft_error(int err, char *exe, char *msg);
 char	*ft_strrmv(char *s, char *sep);
 void	ft_tabfree(char **tab);
+void	display_ascii_dude(void);
+void	sophie_la_girafe(int length);
+int	ft_atoi(char *s);
 
 #endif
