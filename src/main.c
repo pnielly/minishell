@@ -92,7 +92,8 @@ char	**ft_run(char *cmd, char **env)
 }
 
 /*
- ** Malloc and copy my own env
+ ** Malloc and copy my own env 
+ ** Note : this function is also used to add a new element : "expt"
  */
 
 
@@ -142,7 +143,7 @@ int	main(int ac, char **av, char **envp)
 		while (cmds[j])
 			env = ft_run(cmds[j++], env);
 		status = env ? 1 : 0;
-		free(cmds);
+		ft_tabfree(cmds);
 		free(line);
 	}
 	return (0);
