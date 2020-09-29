@@ -1,4 +1,3 @@
-
 #include "utils.h"
 
 int	count_let(char *s, char *sep)
