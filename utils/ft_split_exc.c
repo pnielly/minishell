@@ -1,5 +1,9 @@
 #include "utils.h"
 
+/*
+** ft_split_exc() excludes the separators from the output
+*/
+
 static int	count_chars(char *s, char *sep)
 {
 	int i;
@@ -35,7 +39,7 @@ static int	count_parts(char *s, char *sep)
 	return (parts + 1);
 }
 
-char		**ft_strtok(char *s, char *sep)
+char		**ft_split_exc(char *s, char *sep)
 {
 	char	**tok;
 	int		parts;
@@ -43,6 +47,7 @@ char		**ft_strtok(char *s, char *sep)
 	int		i;
 	int		j;
 
+	s = ft_strtrim(s, sep);
 	parts = count_parts(s, sep);
 	i = 0;
 	tok = (char**)ft_memalloc(sizeof(char*) * parts + 1);

@@ -1,5 +1,9 @@
 #include "minishell.h"
 
+/*
+** bt_env will display all env variables except "$$", "$!" and "$?"
+*/
+
 char	**bt_env(char **args, char **env)
 {
 	int	i;
@@ -8,7 +12,8 @@ char	**bt_env(char **args, char **env)
 	while (env[++i])
 	{
 		if (ft_strchr(env[i], '='))
-			ft_putendl(env[i]);
+			if (!(ft_strchr("$?!", env[i][0]) && env[i][1] == '='))
+				ft_putendl(env[i]);
 	}
 	return (env);
 	(void)args;

@@ -17,7 +17,8 @@ char	*bt_str(int i)
 	bt[6] = "cd";
 	bt[7] = "sophie";
 	bt[8] = "help";
-	bt[9] = NULL;
+	bt[9] = "ls";
+	bt[10] = NULL;
 	return (bt[i]);
 }
 
@@ -38,5 +39,6 @@ char	**(*bt_ft(int i))(char **args, char **env)
 	bt_ft[6] = &bt_cd;
 	bt_ft[7] = &bt_sophie;
 	bt_ft[8] = &bt_help;
+	bt_ft[9] = &bt_ls;
 	return (bt_ft[i]);
 }

@@ -14,6 +14,7 @@
 # include <errno.h>
 # include "utils.h"
 # include <limits.h>
+# include <dirent.h>
 
 /*
 ** Macros
@@ -25,7 +26,7 @@
 ** # of builtins
 */
 
-# define BLTS 9
+# define BLTS 10
 
 /*
 ** errno index
@@ -46,8 +47,11 @@ char	**bt_env(char **args, char **env);
 char	**bt_export(char **args, char **env);
 char	**bt_unset(char **args, char **env);
 char	**bt_cd(char **args, char **env);
+
+/* Other useful builtins (not mandatory) */
 char	**bt_sophie(char **args, char **env);
 char	**bt_help(char **args, char **env);
+char	**bt_ls(char **args, char **env);
 
 /* Other useful functions */
 char	**ft_envadd(char **envp, char *expt);

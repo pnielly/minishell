@@ -1,5 +1,9 @@
 #include "utils.h"
 
+/*
+** ft_split_inc() includes the separators in the output
+*/
+
 int	count_let(char *s, char *sep)
 {
 	int	let;
@@ -40,7 +44,7 @@ int	count_word(char *s, char *sep)
 	return (count);
 }
 
-char	**ft_split(char *s, char *sep)
+char	**ft_split_inc(char *s, char *sep)
 {
 	int	let;
 	int	word;
@@ -48,6 +52,7 @@ char	**ft_split(char *s, char *sep)
 	int	j;
 	char	**tab;
 
+	s = ft_strtrim(s, sep);
 	word = count_word(s, sep);
 	if (!(tab = malloc(sizeof(char *) * (word + 1))))
 		return (NULL);

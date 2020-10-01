@@ -36,6 +36,10 @@ echo "\\" --> \
 echo "\" --> error
 echo "\\\" --> error
 
+echo $$ --> 'gives the shell pid'
+echo $! --> 'gives the pid of the most recently executed background pipeline'
+echo $? --> 'gives the last return of the shell'
+
 -------------cd:
 
 cd  --> go to 'user root'
@@ -43,8 +47,8 @@ cd ~ --> go to 'user root'
 cd .. --> go up one folder
 cd '..' --> go up one folder
 cd ".." --> go up one folder
-cd "project" --> go to folder named project
-cd "project" --> go to folder named project
+cd project --> go to folder named project
+cd 'project' --> go to folder named project
 cd "project" --> go to folder named project
 cd - --> go to previous folder with printing pwd
 cd ~- --> go to previous folder without pwd

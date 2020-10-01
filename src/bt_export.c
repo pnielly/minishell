@@ -3,7 +3,7 @@
 #include "utils.h"
 
 /*
-** If a the var name is already exported but the new export doesn't have a value, no modif is done
+** If the var name is already exported but the new export doesn't have a value, no modif is done
 */
 
 int	ft_nomodif(char **env, char *var)
@@ -23,12 +23,13 @@ int	ft_nomodif(char **env, char *var)
 	}
 	if (!ft_strchr(var, '='))
 		check2 = 0;
-	printf("1 = %d et 2 = %d\n", check1, check2);
+//	printf("1 = %d et 2 = %d\n", check1, check2);
 	return (check1 + check2);
 }
 
 /*
 **	Here ft_envsub is used to remove any duplicate (if the var already exists in env)
+**	Note : if you call "export" without arg, you'll get the output of env with "declare -x"
 */
 
 char	**bt_export(char **args, char **env)
@@ -40,7 +41,7 @@ char	**bt_export(char **args, char **env)
 
 	if (ft_tablen(args) > 2)
 	{
-		printf("%s\n", strerror(WRONG_ARG));
+		ft_putstr(strerror(WRONG_ARG));
 		return (env);
 	}
 	if (ft_tablen(args) == 1)

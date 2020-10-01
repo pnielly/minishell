@@ -1,7 +1,7 @@
 
 dans main :
 
-mettre printf au niveau de strerror (ft_run) (bt_echo) --> suppr <stdio.h> pour les reperer
+mettre printf au niveau de strerror (ft_run) (bt_echo) (bt_ls) --> suppr <stdio.h> pour les reperer
 
 finir de s occuper de $? (pour l instant ne renvoie que 0) --> se renseigner sur num errors et modif var quand necessaire ($? est dans env)
 
