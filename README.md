@@ -1,6 +1,8 @@
 # minishell
 A shell with basic builtins, pipes, env variables, redirections among other things.
 
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+
 ## Usage
 
 In the root of the repo, run:
