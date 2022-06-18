@@ -34,20 +34,20 @@ SRC = main.c  env.c pwd.c  ft_tablen.c  unset.c \
 
 SRC_PATH = $(addprefix $(SRCS_PATH)/,$(SRC))
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC_PATH:.c=.o)
 
 CD_SRC = cd.c change_env_var_value.c init_env_var.c check_cd_arg.c \
 
 
 CD_PATH = $(addprefix $(SRCS_PATH)/,$(addprefix manage_cd/,$(CD_SRC)))
 
-CD_OBJ =  $(CD_SRC:.c=.o)
+CD_OBJ =  $(CD_PATH:.c=.o)
 
 EXP_SRC = check_export_var_val.c export.c show_export_var.c \
 
 EXP_PATH = $(addprefix $(SRCS_PATH)/,$(addprefix export/,$(EXP_SRC)))
 
-EXP_OBJ =  $(EXP_SRC:.c=.o)
+EXP_OBJ =  $(EXP_PATH:.c=.o)
 
 CC = gcc
 
@@ -73,7 +73,7 @@ YELLOW=\033[93m
 GREEN=\033[0;32m
 NC=\033[0;0m
 
-${OBJS_DIR}/%.o: %.c
+${OBJS_DIR}/%.o: $(SRCS_PATH)/%.c
 			@mkdir -p ${OBJS_DIR}
 			@printf "${BLUE}MINISHELL${NC}:    ${DARK_YELLOW}Compilation...    ${YELLOW}%-15.15s${NC}\r" $(notdir ${<})
 			@${CC} ${FLAGS} -I ${HEADER_DIR}  -c $< -o $@
