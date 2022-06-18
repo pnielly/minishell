@@ -23,6 +23,7 @@ cd src
 echo 'hello' > myfile.txt | echo "world" >> myfile.txt | cat myfile.txt
 bao
 sophie 4
+exit
 ```
 
 
